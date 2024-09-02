@@ -1,0 +1,59 @@
+/* Carousel.css */
+
+/* Контейнер для карусели */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 75px;
+    overflow: hidden;
+    object-fit: contain;
+    position: 'relative';
+    overflow: 'hidden' ;
+  }
+  
+  /* Слайд */
+  .carousel-slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Изображение внутри слайда */
+  .carousel-image {
+    width: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Общие стили для стрелок */
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Левая стрелка */
+  .carousel-control.left {
+    left: 10px;
+  }
+  
+  /* Правая стрелка */
+  .carousel-control.right {
+    right: 10px;
+  }
+  
+  /* Ховер эффект на стрелках */
+  .carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  
