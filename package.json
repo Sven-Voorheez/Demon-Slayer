@@ -2,6 +2,7 @@
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
+  "hompage":"https://sven-voorheez.github.io/Demon-Slayer/",
   "type": "module",
   "scripts": {
     "dev": "vite",
