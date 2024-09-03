@@ -1,5 +1,23 @@
-/* .About-block{
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-} */
+/* About.css */
+@media (min-width: 769px) {
+    .p-4 {
+      margin-top: 85px;
+      
+      /* Устанавливаем отступ сверху 50px на экранах шире 769px */
+    }
+  }
+  
+  /* Дополнительные стили для меньших экранов */
+  @media (max-width: 768px) {
+    .p-4 {
+      margin-top: 116px; /* Меньший отступ для экранов меньше 769px */
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .p-4 {
+      margin-top: 120px; /* Увеличиваем отступ для экранов меньше 500px */
+    }
+  }
+  
+  

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Pages/About.css';
+
 const tabs = [
   { key: 'first', label: 'Nature', imgSrc: 'https://gas-kvas.com/grafic/uploads/posts/2023-10/1696602072_gas-kvas-com-p-kartinki-s-prirodoi-51.jpg' },
   { key: 'second', label: 'Swamp', imgSrc: 'https://baldezh.top/uploads/posts/2022-08/1660720631_12-funart-pro-p-bolotnie-rasteniya-priroda-krasivo-foto-13.jpg' },
@@ -12,15 +13,19 @@ export default function About() {
   const [activeTab, setActiveTab] = useState('first');
 
   return (
-    <div className='About-block'>
-    <div className="about-div p-4 mt-40px ">
-      <div className="flex items-center justify-center gap-3 ">
-        <div className="w-1/4 pr-4 ">
-          <ul className="space-y-3 text-lg font-bold">
+    <div className="p-4 mt-16 md:mt-24 lg:mt-12">
+      <div className="flex flex-col md:flex-row gap-4 justify-center">
+        {/* Sidebar */}
+        <div className="w-full md:w-1/3 lg:w-1/4 flex flex-col items-center">
+          <ul className="space-y-3 text-base md:text-lg font-semibold w-full">
             {tabs.map((tab) => (
               <li key={tab.key}>
                 <button
-                  className={`w-full p-2 text-left ${activeTab === tab.key ? 'bg-gray-200 text-blue-600' : 'bg-gray-100 hover:bg-gray-200'}`}
+                  className={`w-full p-3 text-left rounded-lg transition-colors duration-300 ${
+                    activeTab === tab.key
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                  }`}
                   onClick={() => setActiveTab(tab.key)}
                 >
                   {tab.label}
@@ -29,18 +34,28 @@ export default function About() {
             ))}
           </ul>
         </div>
-        <div className="w-2/4 mt-40px">
+
+        {/* Content */}
+        <div className="w-full md:w-2/3 lg:w-2/4 flex flex-col items-center">
           {tabs.map((tab) => (
-            <div key={tab.key} className={`${activeTab === tab.key ? 'block' : 'hidden'}`}>
-              <div className="image-container mb-4">
-                <img src={tab.imgSrc} alt={tab.label} className="w-full h-auto object-cover" />
+            <div
+              key={tab.key}
+              className={`transition-opacity duration-300 ${
+                activeTab === tab.key ? 'block' : 'hidden'
+              }`}
+            >
+              <div className="mb-6">
+                <img src={tab.imgSrc} alt={tab.label} className="w-full h-auto object-cover rounded-lg shadow-lg" />
               </div>
-              <p className="text-center text-white text-lg font-bold">Как же это красиво</p>
+              <p className="text-center text-white text-lg md:text-xl font-semibold">Как же это красиво</p>
             </div>
           ))}
         </div>
       </div>
     </div>
-    </div>
   );
 }
+
+
+
+

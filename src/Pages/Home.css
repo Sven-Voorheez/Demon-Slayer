@@ -55,3 +55,14 @@ body {
     position: 'relative';
     overflow: 'hidden' ;
   }
+  
+  @media (max-width: 769px) {
+    .Main-Images {
+      margin-top: 100px;
+    }
+  }
+  @media (max-width: 500px) {
+    .Main-Images {
+      margin-top: 110px;
+    }
+  }

@@ -1,73 +1,179 @@
 .header {
-    background-color: #2d3748; /* Темно-серый фон */
-    padding: 0.5rem 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000; 
-    
-  }
-  
+  background-color: #2d3748;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-logo {
+  width: 60px;
+  height: auto;
+}
+
+.header-logo-img {
+  width: 100%;
+  height: auto;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Скрываем меню по умолчанию */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #e2e8f0;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #edf2f7;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Добавление отступа между полем ввода и кнопкой поиска */
+}
+
+.search-input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  width: 150px; /* Уменьшенная ширина поля ввода */
+  font-size: 0.875rem;
+}
+
+.search-button {
+  background-color: #4a5568;
+  color: #e2e8f0;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #2d3748;
+}
+
+/* Медиазапросы для адаптивного дизайна */
+@media (max-width: 768px) {
   .header-container {
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    padding: 0;
   }
-  
-  .header-logo {
-    width: 60px; 
-    height: auto;
+
+  .menu-toggle {
+    display: block;
   }
-  
+
   .header-nav {
-    display: flex;
+    display: none;
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
+    width: 100%;
+    background-color: #2d3748;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%); /* Начальное состояние скрыто */
   }
-  
+
+  .header-nav.open {
+    display: flex;
+    transform: translateY(0); /* Показать меню */
+  }
+
   .nav-links {
-    display: flex;
-    gap: 45px;
-    
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
   }
-  
+
   .nav-link {
-    color: #e2e8f0; /* Светло-серый цвет текста ссылок */
-    font-size: 1.125rem;
-    font-weight: 500;
-    text-decoration: none;
-    
+    text-align: center;
+    width: 100%;
+    font-size: 0.875rem; /* Уменьшенный размер шрифта для мобильных экранов */
   }
-  
-  .nav-link:hover {
-    color: #edf2f7; /* Еще светлее при наведении */
-    transition: color 0.3s;
-  }
-  
+
   .search-form {
-    display: flex;
-    margin-left: 140px;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
   }
-  
+
   .search-input {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.375rem;
-    width: 200px; /* Подберите нужную ширину для поля поиска */
+    width: 120px; /* Уменьшенная ширина поля ввода в мобильной версии */
+    font-size: 0.75rem; /* Уменьшенный размер шрифта для мобильных экранов */
   }
-  
+
   .search-button {
-    background-color: #4a5568; /* Цвет кнопки поиска */
-    color: #e2e8f0; /* Цвет иконки в кнопке */
-    border: none;
     padding: 0.5rem;
-    border-radius: 0.375rem;
+  }
+
+  /* Кнопка закрытия меню */
+  .menu-close {
+    display: block;
+    background: none;
+    border: none;
+    color: #e2e8f0;
+    font-size: 1.5rem;
     cursor: pointer;
-    margin-left: -1px; /* Чтобы кнопка поиска примыкала к полю поиска */
+    margin-top: 1rem;
+    align-self: center; 
   }
-  
-  .search-button:hover {
-    background-color: #2d3748; /* Цвет кнопки при наведении */
+}
+
+
+@media (min-width: 769px) {
+  .menu-close {
+    display: none;
   }
+}
+
+@media (max-width: 575px) {
+  .header-nav {
+    top: 50px; 
+  }
+}
+
+
+
+
